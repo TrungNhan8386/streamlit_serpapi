@@ -1,1 +1,18 @@
+[theme]
+# Giao diện sáng
+base = "light"
 
+# 🔸 Màu cam chủ đạo – giống ShopeeFood
+primaryColor = "#EE4D2D"
+
+# ⚪ Nền chính (màu trắng sáng, giống background ShopeeFood)
+backgroundColor = "#FFFFFF"
+
+# 🔶 Nền phụ (thanh sidebar, card, bảng)
+secondaryBackgroundColor = "#FF7F50"
+
+# 🖋️ Màu chữ (xám đậm, dễ đọc)
+textColor = "#222222"
+
+# 🅰️ Phông chữ hiện đại
+font = "sans serif"
