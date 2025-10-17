@@ -60,21 +60,6 @@ def within(time_str, start_str, end_str):
     if start_min <= end_min:
         return start_min <= t_min <= end_min
     return t_min >= start_min or t_min <= end_min
-"""
-def is_open(row, dt: datetime.datetime):
-    day = weekday_name(dt)
-    oh = row.get("open_hours")
-    if isinstance(oh, dict) and "text" not in oh and day in oh:
-        slots = oh.get(day, [])
-        t = dt.strftime("%H:%M")
-        for s, e in slots:
-            if within(t, s, e):
-                return True
-        return False
-    if "open_now" in row:
-        return bool(row.get("open_now", True))
-    return True
-"""
 
 def is_open(row, dt):
     # Ưu tiên thông tin open_now nếu có
@@ -286,18 +271,6 @@ if source == "Google Places API":
                     df["tags"] = df["tags"].apply(lambda x: x if isinstance(x, list) else (x or []))
             except Exception as e:
                 st.error(f"Lỗi Google Places: {e}")
-    """
-    elif source == "SerpApi":
-    if not SERP_AVAILABLE:
-        st.warning("Chưa có module fetch_serpapi_pois.py — chuyển sang CSV/Google.")
-    else:
-        serp_key = st.text_input("SerpApi Key", type="password", help="Free plan ~100 requests/tháng")
-        if serp_key:
-            try:
-                df = get_serpapi_pois(lat, lng, "nhà hàng", serp_key, radius_km=radius_km, max_pages=1)
-            except Exception as e:
-                st.error(f"Lỗi SerpApi: {e}")
-    """
 
 elif source == "SerpApi":
     if not SERP_AVAILABLE:
